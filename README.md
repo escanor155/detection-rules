@@ -48,9 +48,6 @@ EventID=1 (ParentImage IN ("*\\msedge.exe", "*\\chrome.exe", "*\\firefox.exe",
 "*\\pwsh.exe", "*\\wscript.exe", "*\\cscript.exe", "*\\mshta.exe"))
 ```
 
-CI runs `sigma check` on every push (see
-[`.github/workflows/sigma-check.yml`](.github/workflows/sigma-check.yml)).
-
 ## Using them
 
 ```bash
