@@ -1,0 +1,36 @@
+title: Editor Running Under Sudo Spawns a Shell
+id: 7aa52213-1f0c-4b73-8c52-5def0a3d1ef7
+status: experimental
+description: >-
+  A text editor started through sudo that spawns an interactive shell. Allowing
+  an editor in sudoers grants root through the editor's own shell escape, which
+  is the classic sudo vi / vim escalation.
+references:
+  - https://github.com/escanor155/htb-writeups/blob/main/starting-point/vaccine.md
+author: Anthony Salisi
+date: 2026/11/05
+tags:
+  - attack.privilege-escalation
+  - attack.t1548.003
+logsource:
+  category: process_creation
+  product: linux
+detection:
+  selection_parent:
+    ParentImage|endswith:
+      - '/vi'
+      - '/vim'
+      - '/nvim'
+      - '/nano'
+      - '/emacs'
+  selection_child:
+    Image|endswith:
+      - '/sh'
+      - '/bash'
+      - '/dash'
+      - '/zsh'
+  condition: selection_parent and selection_child
+falsepositives:
+  - Editor plugins that legitimately run shell commands, formatters or linters
+  - Administrators who open a terminal from inside vim on purpose
+level: medium

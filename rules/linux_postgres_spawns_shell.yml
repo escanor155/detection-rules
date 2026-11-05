@@ -1,0 +1,37 @@
+title: PostgreSQL Server Process Spawns a Shell
+id: 8512c738-de85-4de1-8880-44674f1f7970
+status: experimental
+description: >-
+  The postgres server process starting a shell or script interpreter. A database
+  should not fork an interactive shell during normal operation; this is the
+  pattern produced by COPY ... TO PROGRAM and by database extensions that shell
+  out to the operating system.
+references:
+  - https://github.com/escanor155/htb-writeups/blob/main/starting-point/vaccine.md
+author: Anthony Salisi
+date: 2026/11/05
+tags:
+  - attack.execution
+  - attack.t1059.004
+logsource:
+  category: process_creation
+  product: linux
+detection:
+  selection_parent:
+    ParentImage|endswith: '/postgres'
+  selection_child:
+    Image|endswith:
+      - '/sh'
+      - '/bash'
+      - '/dash'
+      - '/zsh'
+      - '/python3'
+      - '/perl'
+      - '/curl'
+      - '/wget'
+      - '/nc'
+  condition: selection_parent and selection_child
+falsepositives:
+  - Maintenance or backup procedures that call an external script from inside the database
+  - Monitoring extensions that execute operating system commands by design
+level: high

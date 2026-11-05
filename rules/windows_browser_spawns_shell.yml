@@ -1,0 +1,36 @@
+title: Browser Process Spawns a Windows Command Shell
+id: 8eecfc3d-753f-4452-ae00-e8e866d1f011
+status: experimental
+description: >-
+  A web browser starting cmd.exe, PowerShell or a script host as a child
+  process. This is the shape of a kiosk or browser sandbox escape that abuses a
+  file-open dialog, and has almost no legitimate use outside enterprise launchers.
+author: Anthony Salisi
+date: 2026/11/05
+tags:
+  - attack.stealth
+  - attack.t1218
+  - attack.t1204.002
+logsource:
+  category: process_creation
+  product: windows
+detection:
+  selection_parent:
+    ParentImage|endswith:
+      - '\msedge.exe'
+      - '\chrome.exe'
+      - '\firefox.exe'
+      - '\iexplore.exe'
+  selection_child:
+    Image|endswith:
+      - '\cmd.exe'
+      - '\powershell.exe'
+      - '\pwsh.exe'
+      - '\wscript.exe'
+      - '\cscript.exe'
+      - '\mshta.exe'
+  condition: selection_parent and selection_child
+falsepositives:
+  - Enterprise single sign-on or launcher plugins that hand off to a local helper
+  - Browser extensions that invoke a native messaging host with a shell wrapper
+level: high

@@ -1,0 +1,32 @@
+title: Anonymous S3 Object Write
+id: b1c2e707-0ac6-44cd-b482-771e257be83e
+status: experimental
+description: >-
+  An unsigned, anonymous request writing to an S3 bucket. Anonymous writes mean
+  the bucket policy or ACL grants public write, which allows an attacker to host
+  content in the account or overwrite objects served by a website.
+references:
+  - https://github.com/escanor155/htb-writeups/blob/main/starting-point/three.md
+author: Anthony Salisi
+date: 2026/11/05
+tags:
+  - attack.initial-access
+  - attack.t1190
+  - attack.t1530
+logsource:
+  product: aws
+  service: cloudtrail
+detection:
+  selection_event:
+    eventSource: s3.amazonaws.com
+    eventName:
+      - PutObject
+      - PutObjectAcl
+      - DeleteObject
+  selection_anonymous:
+    userIdentity.type: Anonymous
+  condition: selection_event and selection_anonymous
+falsepositives:
+  - Intentionally public upload buckets, such as a static form intake with no authentication
+  - Misconfigured backup or telemetry jobs that forget credentials and still write
+level: high
