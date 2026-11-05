@@ -1,6 +1,6 @@
 # Detection rules from my lab work
 
-[![sigma-check](https://github.com/escanor155/detection-rules/actions/workflows/sigma-check.yml/badge.svg)](https://github.com/escanor155/detection-rules/actions/workflows/sigma-check.yml)
+[![sigma-check](https://github.com/the-ghostterminal/detection-rules/actions/workflows/sigma-check.yml/badge.svg)](https://github.com/the-ghostterminal/detection-rules/actions/workflows/sigma-check.yml)
 
 Most Hack The Box writeups end at the flag. This repository is the other half:
 the detections I would want if the same technique arrived on a network I was
@@ -85,10 +85,10 @@ auditd or an EDR agent rather than Sysmon for Linux.
 
 ## Related writeups
 
-- [Vaccine](https://github.com/escanor155/htb-writeups/blob/main/starting-point/vaccine.md):
+- [Vaccine](https://github.com/the-ghostterminal/htb-writeups/blob/main/starting-point/vaccine.md):
   anonymous FTP, a leaked hash, SQL injection as a superuser, and
   `COPY ... TO PROGRAM` to a shell.
-- [Three](https://github.com/escanor155/htb-writeups/blob/main/starting-point/three.md):
+- [Three](https://github.com/the-ghostterminal/htb-writeups/blob/main/starting-point/three.md):
   virtual host discovery, a public S3 bucket, anonymous write to the web root.
 
-Written by [Anthony Salisi](https://github.com/escanor155).
+Written by [TheGhostTerminal](https://github.com/the-ghostterminal).

@@ -6,8 +6,8 @@ description: >-
   the bucket policy or ACL grants public write, which allows an attacker to host
   content in the account or overwrite objects served by a website.
 references:
-  - https://github.com/escanor155/htb-writeups/blob/main/starting-point/three.md
-author: Anthony Salisi
+  - https://github.com/the-ghostterminal/htb-writeups/blob/main/starting-point/three.md
+author: TheGhostTerminal
 date: 2026/11/05
 tags:
   - attack.initial-access

@@ -5,7 +5,7 @@ description: >-
   A web browser starting cmd.exe, PowerShell or a script host as a child
   process. This is the shape of a kiosk or browser sandbox escape that abuses a
   file-open dialog, and has almost no legitimate use outside enterprise launchers.
-author: Anthony Salisi
+author: TheGhostTerminal
 date: 2026/11/05
 tags:
   - attack.stealth

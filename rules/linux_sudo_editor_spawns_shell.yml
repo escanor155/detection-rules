@@ -6,8 +6,8 @@ description: >-
   an editor in sudoers grants root through the editor's own shell escape, which
   is the classic sudo vi / vim escalation.
 references:
-  - https://github.com/escanor155/htb-writeups/blob/main/starting-point/vaccine.md
-author: Anthony Salisi
+  - https://github.com/the-ghostterminal/htb-writeups/blob/main/starting-point/vaccine.md
+author: TheGhostTerminal
 date: 2026/11/05
 tags:
   - attack.privilege-escalation

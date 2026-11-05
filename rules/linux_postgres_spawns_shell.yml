@@ -7,8 +7,8 @@ description: >-
   pattern produced by COPY ... TO PROGRAM and by database extensions that shell
   out to the operating system.
 references:
-  - https://github.com/escanor155/htb-writeups/blob/main/starting-point/vaccine.md
-author: Anthony Salisi
+  - https://github.com/the-ghostterminal/htb-writeups/blob/main/starting-point/vaccine.md
+author: TheGhostTerminal
 date: 2026/11/05
 tags:
   - attack.execution
