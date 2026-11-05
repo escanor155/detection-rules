@@ -1,5 +1,7 @@
 # Detection rules from my lab work
 
+[![sigma-check](https://github.com/escanor155/detection-rules/actions/workflows/sigma-check.yml/badge.svg)](https://github.com/escanor155/detection-rules/actions/workflows/sigma-check.yml)
+
 Most Hack The Box writeups end at the flag. This repository is the other half:
 the detections I would want if the same technique arrived on a network I was
 responsible for.
@@ -47,6 +49,9 @@ EventID=1 (ParentImage IN ("*\\msedge.exe", "*\\chrome.exe", "*\\firefox.exe",
 "*\\iexplore.exe")) (Image IN ("*\\cmd.exe", "*\\powershell.exe",
 "*\\pwsh.exe", "*\\wscript.exe", "*\\cscript.exe", "*\\mshta.exe"))
 ```
+
+The workflow in `.github/workflows/sigma-check.yml` runs the same check on every
+push, so a rule that stops parsing fails loudly instead of rotting silently.
 
 ## Using them
 
